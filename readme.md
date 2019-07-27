@@ -17,6 +17,6 @@ BlogCafé is a simple Single Page Blog Application built with Laravel and VueJS.
 
 ## Preview
 
-![alt text]('./public/home.png')
+![alt text]('https://raw.githubusercontent.com/MartinsOnuoha/BlogCafe/master/public/home.png')
 
-![alt text]('./public/viewpost.png')
+![alt text]('https://raw.githubusercontent.com/MartinsOnuoha/BlogCafe/master/public/viewpost.png')
