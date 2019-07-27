@@ -20,7 +20,6 @@
               list-type="picture-card"
               :on-preview="handlePictureCardPreview"
               :on-change="updateImageList"
-              :file-list=imageList
               :auto-upload="false">
               <i class="el-icon-plus"></i>
             </el-upload>

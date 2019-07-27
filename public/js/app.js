@@ -3516,13 +3516,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'all-posts',
@@ -3572,7 +3565,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
 //
 //
 //
@@ -99511,21 +99503,7 @@ var render = function() {
             post.post_images.length
               ? _c("img", {
                   staticClass: "card-img-top",
-                  attrs: {
-                    src: post.post_images[0].post_image_path,
-                    alt: "Card image cap"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" "),
-            !post.post_images.length
-              ? _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src:
-                      "https://images.pexels.com/photos/949587/pexels-photo-949587.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-                    alt: "Card image cap"
-                  }
+                  attrs: { src: post.post_images[0].post_image_path }
                 })
               : _vm._e(),
             _vm._v(" "),
@@ -99589,11 +99567,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("h4", [_vm._v(_vm._s(_vm.currentPost.body))])
-                  ])
-                ])
+                _c("p", [_vm._v(_vm._s(_vm.currentPost.body))])
               ]),
               _vm._v(" "),
               _c(
@@ -99741,7 +99715,6 @@ var render = function() {
                   "list-type": "picture-card",
                   "on-preview": _vm.handlePictureCardPreview,
                   "on-change": _vm.updateImageList,
-                  "file-list": _vm.imageList,
                   "auto-upload": false
                 }
               },
