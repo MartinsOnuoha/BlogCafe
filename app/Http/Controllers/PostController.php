@@ -19,25 +19,27 @@ class PostController extends Controller
 
     public function createPost(Request $request)
     {
-        $user = Auth::user();
-        $title = $request->title;
-        $body = $request->body;
-        $images = $request->images;
+        DB::transaction(function () use ($request) {
+            $user = Auth::user();
+            $title = $request->title;
+            $body = $request->body;
+            $images = $request->images;
 
-        $post = Post::create([
-            'title' => $title,
-            'body' => $body,
-            'user_id' => $user->id,
-        ]);
-        // store each image
-        foreach($images as $image) {
-            $imagePath = Storage::disk('uploads')->put($user->email . '/posts/' . $post->id, $image);
-            PostImage::create([
-                'post_image_caption' => $title,
-                'post_image_path' => '/uploads/' . $imagePath,
-                'post_id' => $post->id
+            $post = Post::create([
+                'title' => $title,
+                'body' => $body,
+                'user_id' => $user->id,
             ]);
-        }
-        return response()->json(['error' => false, 'data' => $post]);
+            // store each image
+            foreach($images as $image) {
+                $imagePath = Storage::disk('uploads')->put($user->email . '/posts/' . $post->id, $image);
+                PostImage::create([
+                    'post_image_caption' => $title,
+                    'post_image_path' => '/uploads/' . $imagePath,
+                    'post_id' => $post->id
+                ]);
+            }
+        });
+        return response()->json(200);
     }
 }
