@@ -18,8 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'post'], function () {
-    Route::get('get_all', 'PostController@getAllPosts');
-    Route::post('create_post', 'PostController@createPost');
+    Route::get('get_all', 'PostController@getAllPosts')->;
+    Route::post('create_post', 'PostController@createPost')->name();
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
