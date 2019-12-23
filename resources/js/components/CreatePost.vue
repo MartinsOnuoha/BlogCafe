@@ -101,7 +101,7 @@ export default {
       if (!this.validateForm()) {
         return false;
       }
-
+      const that = this;
       this.isCreatingPost = true;
       let formData = new FormData();
 
@@ -118,7 +118,8 @@ export default {
           this.status = true;
           this.showNotificaiton('Post Successfully Created');
           this.isCreatingPost = false;
-          this.getAllPosts();
+          this.imageList = [];
+          that.getAllPosts();
         });
     },
     validateForm() {
