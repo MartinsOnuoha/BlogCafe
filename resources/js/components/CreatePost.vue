@@ -101,7 +101,7 @@ export default {
       if (!this.validateForm()) {
         return false;
       }
-
+      const that = this;
       this.isCreatingPost = true;
       let formData = new FormData();
 

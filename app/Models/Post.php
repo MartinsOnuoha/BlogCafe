@@ -10,10 +10,10 @@ class Post extends Model
 
     public function author()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
     public function post_images()
     {
-        return $this->hasMany('App\PostImage');
+        return $this->hasMany('App\Models\PostImage');
     }
 }
