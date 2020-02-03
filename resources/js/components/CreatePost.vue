@@ -119,6 +119,11 @@ export default {
           this.showNotificaiton('Post Successfully Created');
           this.isCreatingPost = false;
           this.imageList = [];
+          /*
+           this.getAllPosts() can be used here as well
+           note: "that" has been assigned the value of "this" at the top
+           to avoid context related issues.
+           */
           that.getAllPosts();
         });
     },
