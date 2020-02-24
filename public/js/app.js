@@ -4367,26 +4367,40 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'create-post',
-  props: ['posts'],
+  name: "create-post",
+  props: ["posts"],
   data: function data() {
     return {
-      dialogImageUrl: '',
+      dialogImageUrl: "",
       dialogVisible: false,
       imageList: [],
-      status_msg: '',
-      status: '',
+      status_msg: "",
+      status: "",
       isCreatingPost: false,
-      title: '',
-      body: ''
+      title: "",
+      body: ""
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['getAllPosts'])),
+  computed: {},
   mounted: function mounted() {},
-  methods: {
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["getAllPosts"]), {
+    //moved it from computed properties
     updateImageList: function updateImageList(file) {
       this.imageList.push(file.raw);
     },
@@ -4407,50 +4421,60 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var that = this;
       this.isCreatingPost = true;
       var formData = new FormData();
-      formData.append('title', this.title);
-      formData.append('body', this.body);
+      formData.append("title", this.title);
+      formData.append("body", this.body);
       $.each(this.imageList, function (key, image) {
         formData.append("images[".concat(key, "]"), image);
       });
-      api.post('/post/create_post', formData, {
+      api.post("/post/create_post", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          "Content-Type": "multipart/form-data"
         }
       }).then(function (res) {
-        _this.title = _this.body = '';
+        _this.title = _this.body = "";
         _this.status = true;
 
-        _this.showNotificaiton('Post Successfully Created');
+        _this.showNotification("Post Successfully Created"); //fixed spelling mistake
+
 
         _this.isCreatingPost = false;
         _this.imageList = [];
+        /*
+         this.getAllPosts() can be used here as well
+         note: "that" has been assigned the value of "this" at the top
+         to avoid context related issues.
+         */
+
         that.getAllPosts();
       });
     },
     validateForm: function validateForm() {
+      //no vaildation for images - it is needed
       if (!this.title) {
         this.status = false;
-        this.showNotificaiton('Post title cannot be empty');
+        this.showNotification("Post title cannot be empty"); //fixed spelling mistake
+
         return false;
       }
 
       if (!this.body) {
         this.status = false;
-        this.showNotification('Post body cannot be empty');
+        this.showNotification("Post body cannot be empty");
         return false;
       }
 
       return true;
     },
-    showNotificaiton: function showNotificaiton(message) {
+    showNotification: function showNotification(message) {
       var _this2 = this;
 
+      //fixed spelling mistake
       this.status_msg = message;
       Object(timers__WEBPACK_IMPORTED_MODULE_0__["setTimeout"])(function () {
-        _this2.status_msg = '';
+        _this2.status_msg = "";
       }, 3000);
     }
-  }
+  })
 });
 
 /***/ }),
@@ -10873,7 +10897,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.avatar-uploader .el-upload {\n  border: 1px dashed #d9d9d9;\n  border-radius: 6px;\n  cursor: pointer;\n  position: relative;\n  overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\n  border-color: #409EFF;\n}\n.avatar-uploader-icon {\n  font-size: 28px;\n  color: #8c939d;\n  width: 178px;\n  height: 178px;\n  line-height: 178px;\n  text-align: center;\n}\n.avatar {\n  width: 178px;\n  height: 178px;\n  display: block;\n}\n", ""]);
+exports.push([module.i, "\n.avatar-uploader .el-upload {\n  border: 1px dashed #d9d9d9;\n  border-radius: 6px;\n  cursor: pointer;\n  position: relative;\n  overflow: hidden;\n}\n.avatar-uploader .el-upload:hover {\n  border-color: #409eff;\n}\n.avatar-uploader-icon {\n  font-size: 28px;\n  color: #8c939d;\n  width: 178px;\n  height: 178px;\n  line-height: 178px;\n  text-align: center;\n}\n.avatar {\n  width: 178px;\n  height: 178px;\n  display: block;\n}\n", ""]);
 
 // exports
 
@@ -100928,7 +100952,7 @@ var render = function() {
               },
               attrs: { role: "alert" }
             },
-            [_vm._v("\n        " + _vm._s(_vm.status_msg) + "\n      ")]
+            [_vm._v(_vm._s(_vm.status_msg))]
           )
         : _vm._e(),
       _vm._v(" "),
@@ -101042,13 +101066,7 @@ var render = function() {
           attrs: { type: "button" },
           on: { click: _vm.createPost }
         },
-        [
-          _vm._v(
-            "\n        " +
-              _vm._s(_vm.isCreatingPost ? "Posting..." : "Create Post") +
-              "\n      "
-          )
-        ]
+        [_vm._v(_vm._s(_vm.isCreatingPost ? "Posting..." : "Create Post"))]
       )
     ])
   ])
@@ -114739,8 +114757,8 @@ var debug = "development" !== 'production';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/kratos/Projects/OPENSOURCE/BlogCafe/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/kratos/Projects/OPENSOURCE/BlogCafe/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\projects\pull-requests\BlogCafe\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\projects\pull-requests\BlogCafe\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
