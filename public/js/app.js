@@ -4394,13 +4394,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       status: "",
       isCreatingPost: false,
       title: "",
-      body: ""
+      body: "",
+      componentKey: 0
     };
   },
   computed: {},
   mounted: function mounted() {},
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["getAllPosts"]), {
-    //moved it from computed properties
     updateImageList: function updateImageList(file) {
       this.imageList.push(file.raw);
     },
@@ -4434,8 +4434,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.title = _this.body = "";
         _this.status = true;
 
-        _this.showNotification("Post Successfully Created"); //fixed spelling mistake
-
+        _this.showNotification("Post Successfully Created");
 
         _this.isCreatingPost = false;
         _this.imageList = [];
@@ -4446,14 +4445,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
          */
 
         that.getAllPosts();
+        that.componentKey += 1;
       });
     },
     validateForm: function validateForm() {
       //no vaildation for images - it is needed
       if (!this.title) {
         this.status = false;
-        this.showNotification("Post title cannot be empty"); //fixed spelling mistake
-
+        this.showNotification("Post title cannot be empty");
         return false;
       }
 
@@ -4468,7 +4467,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     showNotification: function showNotification(message) {
       var _this2 = this;
 
-      //fixed spelling mistake
       this.status_msg = message;
       Object(timers__WEBPACK_IMPORTED_MODULE_0__["setTimeout"])(function () {
         _this2.status_msg = "";
@@ -100937,7 +100935,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card mt-4" }, [
+  return _c("div", { key: _vm.componentKey, staticClass: "card mt-4" }, [
     _c("div", { staticClass: "card-header" }, [_vm._v("New Post")]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [

@@ -1,5 +1,5 @@
 <template>
-  <div class="card mt-4">
+  <div class="card mt-4" :key="componentKey">
     <div class="card-header">New Post</div>
     <div class="card-body">
       <div
@@ -92,13 +92,14 @@ export default {
       status: "",
       isCreatingPost: false,
       title: "",
-      body: ""
+      body: "",
+      componentKey: 0
     };
   },
   computed: {},
   mounted() {},
   methods: {
-    ...mapActions(["getAllPosts"]), //moved it from computed properties
+    ...mapActions(["getAllPosts"]),
     updateImageList(file) {
       this.imageList.push(file.raw);
     },
@@ -130,7 +131,7 @@ export default {
         .then(res => {
           this.title = this.body = "";
           this.status = true;
-          this.showNotification("Post Successfully Created"); //fixed spelling mistake
+          this.showNotification("Post Successfully Created");
           this.isCreatingPost = false;
           this.imageList = [];
           /*
@@ -139,13 +140,14 @@ export default {
            to avoid context related issues.
            */
           that.getAllPosts();
+          that.componentKey += 1;
         });
     },
     validateForm() {
       //no vaildation for images - it is needed
       if (!this.title) {
         this.status = false;
-        this.showNotification("Post title cannot be empty"); //fixed spelling mistake
+        this.showNotification("Post title cannot be empty");
         return false;
       }
       if (!this.body) {
@@ -156,7 +158,6 @@ export default {
       return true;
     },
     showNotification(message) {
-      //fixed spelling mistake
       this.status_msg = message;
       setTimeout(() => {
         this.status_msg = "";
