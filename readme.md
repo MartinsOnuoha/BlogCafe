@@ -60,14 +60,6 @@ Update .env file with DB information
   DB_PASSWORD=grimesBottom
 ```
 
-> Generate Key
-
-Generate application key from your terminal
-
-```bash
-php artisan key:generate
-```
-
 > Install laravel packages
 
 Remove composer.lock file and install packages
@@ -79,6 +71,17 @@ rm composer.lock
 ```bash
 composer install
 ```
+
+
+> Generate Key
+
+Generate application key from your terminal
+
+```bash
+php artisan key:generate
+```
+
+
 
 > Install npm packages
 
