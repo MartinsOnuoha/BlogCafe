@@ -1,6 +1,6 @@
 # BlogCafé ☕️
 
-BlogCafé is a simple Single Page Blog Application built with Laravel and VueJS.
+BlogCafé is a simple Single Page Blog Application built with Laravel 5.8 and Vue2.
 
 `BlogCafé` allows users create accounts, create blog posts with multiple images upload feature, view all blog posts and view a single blog post content.
 
