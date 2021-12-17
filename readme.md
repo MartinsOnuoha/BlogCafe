@@ -6,7 +6,7 @@ BlogCafé is a simple Single Page Blog Application built with Laravel 5.8 and Vu
 
 `BlogCafé` is a end product of a [blog tutorial](https://medium.com/@martinsOnuoha/building-a-simple-blog-with-multiple-image-upload-in-laravel-vue-5517de920796) I wrote detailing how to build and implement a blog system with multiple image upload using Vuejs(a frontend SPA) and Laravel.
 
-### Features
+## Features
 
 > - Login
 > - Register
@@ -14,20 +14,19 @@ BlogCafé is a simple Single Page Blog Application built with Laravel 5.8 and Vu
 > - Create Blog Post
 > - View Blog Post
 
-### Preview
+## Preview
 
 <img src="https://raw.githubusercontent.com/MartinsOnuoha/BlogCafe/master/public/home.png" />
 
 <img src="https://raw.githubusercontent.com/MartinsOnuoha/BlogCafe/master/public/viewpost.png" />
 
-
-### Installation
+## Installation
 
 > Clone repository
 
 clone repository to your local machine
 
-```
+```bash
 git clone https://github.com/MartinsOnuoha/BlogCafe.git
 ```
 
@@ -51,7 +50,7 @@ cp .env.example .env
 
 Update .env file with DB information
 
-```
+```env
   DB_CONNECTION=mysql
   DB_HOST=127.0.0.1
   DB_PORT=3306
@@ -72,7 +71,6 @@ rm composer.lock
 composer install
 ```
 
-
 > Generate Key
 
 Generate application key from your terminal
@@ -80,8 +78,6 @@ Generate application key from your terminal
 ```bash
 php artisan key:generate
 ```
-
-
 
 > Install npm packages
 
